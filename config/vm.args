@@ -1,0 +1,6 @@
+-sname cowboy_rebar3
+
+-setcookie cowboy_rebar3_cookie
+
++K true
++A30
