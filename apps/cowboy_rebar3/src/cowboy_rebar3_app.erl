@@ -17,8 +17,10 @@ start(_StartType, _StartArgs) ->
     ]),     
     {ok, _} = cowboy:start_clear(my_http_listener,
         [{port, 8080}],
-        #{env => #{dispatch => Dispatch}
+        #{env => #{dispatch => Dispatch},
+        middlewares => [cowboy_router, cowboy_handler]
     }),
+    persist:init_db(pgdb),
     cowboy_rebar3_sup:start_link().
 
 stop(_State) ->
