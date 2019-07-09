@@ -10,20 +10,20 @@
 -export([start/2, stop/1]).
 
 start(_StartType, _StartArgs) ->
-    Dispatch = cowboy_router:compile([         
-            {'_', [
-                {"/", hello_handler, []}
-            ]}     
-    ]),     
-    {ok, _} = cowboy:start_clear(my_http_listener,
-        [{port, 8080}],
-        #{env => #{dispatch => Dispatch},
-        middlewares => [cowboy_router, cowboy_handler]
-    }),
-    persist:init_db(pgdb),
-    cowboy_rebar3_sup:start_link().
+  Dispatch = cowboy_router:compile([         
+    {'_', [
+        {"/", hello_handler, []},
+        {"/register", register_handler, []}
+    ]}     
+  ]),     
+  {ok, _} = cowboy:start_clear(my_http_listener,
+    [{port, 8080}],
+    #{env => #{dispatch => Dispatch}
+  }),
+  persist:init_db(pgdb),
+  cowboy_rebar3_sup:start_link().
 
 stop(_State) ->
-    ok.
+  ok.
 
 %% internal functions
