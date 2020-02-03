@@ -30,6 +30,8 @@ If you have ANY problem, leave an issue on this project with some information ab
 
 - Git clone this repo `git clone https://github.com/steele232/Hello_Erlang_Rebar3_Cowboy.git` or download it as a Zip file from [Github.com](https://github.com/steele232/Hello_Erlang_Rebar3_Cowboy.git)
 - The rest of these commands are pretty much from [this tutorial](https://www.erlang-solutions.com/resources/download.html)
+- Get into your command line program. On Mac/Linux, it's called "Terminal" and on Windows it's called "Command Prompt".
+- Navigate to the project directory with the `cd` command
 - Start an Erlang shell by running `rebar3 shell` in your command line
 - That last command will have started the application, so you can visit `localhost:8080` in your web browser and you will see "Hello Hawking Instamo" which just shows that the server is up and running.
 - In the Erlang shell, run `application:stop(cowboy_rebar3).` to stop the application. cowboy_rebar3 is the name of the application. When you create your own project with rebar3, you will substitute cowboy_rebar3 with the name of your own project.
